@@ -1,0 +1,32 @@
+<h3>Member's Profile:</h3>
+<h4><strong><%= member_full_name(@member) %></strong></h4>
+<br/>
+<p>
+  <strong>Number of Wins:</strong>
+  <%= @member_details[:number_of_wins] %>
+</p>
+
+<p>
+  <strong>Number of Losses:</strong>
+  <%= @member_details[:number_of_losses] %>
+</p>
+
+<p>
+  <strong>Average Score:</strong>
+  <%= @member_details[:average_score] %>
+</p>
+
+<p>
+  <strong>Highest Score:</strong>
+  <% if @member_details[:highest_score].present? %>
+    <%= @member_details[:highest_score][:points] %>
+    <strong>Played On: </strong>
+    <%= @member_details[:highest_score][:date].strftime("%d-%b-%y At %H:%M %p") %>
+    <strong>At the Location: </strong>
+    <%= @member_details[:highest_score][:location] %>
+    <strong>Against: </strong>
+    <%= member_full_name(@member_details[:highest_score][:opponent]) %>
+  <% else %>
+    No Match Played
+  <% end %>
+</p>
