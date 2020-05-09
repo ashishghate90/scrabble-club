@@ -27,6 +27,37 @@ DB: Postgresql
     * Go in app directory
     * Install the apropriate Ruby version (i.e. ruby-2.6.1) & Rails version (i.e. rails-5.2.4.2
     * Use the above Ruby and Rails versions.
+    
+    * Create in "database.yml" in "/config" folder.
+    
+    * put the following environment configuration settings in "database.yml".
+      
+
+      default: &default
+        adapter: postgresql
+        encoding: unicode
+        # For details on connection pooling, see Rails configuration guide
+        # http://guides.rubyonrails.org/configuring.html#database-pooling
+        pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+        username: postgres_username
+        password: postgres_password
+
+      development:
+        <<: *default
+        database: scrabble_club_dev
+
+      test:
+        <<: *default
+        database: scrabble_club_test
+
+      production:
+        <<: *default
+        database: scrabble_club_production
+        username: scrabble_club
+        password: <%= ENV['SCRABBLE_CLUB_DATABASE_PASSWORD'] %>
+
+
+
     * run the following commands in app directory to configure the application
 
       /scrabble_club$ bundle install
