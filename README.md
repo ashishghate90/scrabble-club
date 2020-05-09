@@ -1,10 +1,8 @@
 # README
 
-It's an simple scrabble-club system to member's information and provide leader boards to show their top performing players.
+It's an simple scrabble-club system to store member's information and provide leader boards to show their top performing players.
 
-Ruby version: Ruby-2.6.1
-Rails version: Rails-5.2.4.2
-DB: Postgresql
+Ruby version: Ruby-2.6.1, Rails version: Rails-5.2.4.2, DB: Postgresql
 
 1. Remaining Functionality:
 
